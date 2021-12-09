@@ -1,5 +1,11 @@
-function Results() {
-  return <div></div>;
+import Results from "../components/ResultsContainer";
+
+function Saved() {
+  return (
+    <div>
+      <Results />
+    </div>
+  );
 }
 
-export default Results;
+export default Saved;
