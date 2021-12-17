@@ -1,30 +1,41 @@
 const express = require("express");
-const mongojs = require("mongojs");
-const logger = require("morgan");
+const path = require("path");
 const routes = require("./routes/index");
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require("./config/connection");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use(logger("dev"));
+const sess = {
+  key: "userId",
+  secret: "Super secret secret",
+  cookie: {
+    expires: 60 * 60 * 24,
+  },
+  resave: false,
+  saveUninitialized: false,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
+// Define middleware here
+app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
-app.use(express.static("public"));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
-const databaseUrl = "notetaker";
-const collections = ["notes"];
-
-const db = mongojs(databaseUrl, collections);
-
-db.on("error", (error) => {
-  console.log("Database Error:", error);
-});
-
+// Use apiRoutes
 app.use(routes);
 
-// Listen on port 3000
-app.listen(PORT, () => {
-  console.log("App running on port 3000!");
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log("Now listening"));
 });
