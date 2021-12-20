@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Books } = require("../../models");
+const { User, Book } = require("../../models");
 require("dotenv").config();
 const transporter = require("./nodemailer");
 const jwt = require("jsonwebtoken");

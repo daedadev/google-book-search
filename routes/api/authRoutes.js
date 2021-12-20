@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Books } = require("../../models");
+const { User, Book } = require("../../models");
 const cors = require("cors");
 
 // Routes all defined on /api/auth/checktoken
