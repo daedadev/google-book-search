@@ -1,5 +1,3 @@
-function Banner() {
+export default function Banner() {
   return <div></div>;
 }
-
-export default Banner;
