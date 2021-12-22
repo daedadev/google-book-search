@@ -13,7 +13,7 @@ const Search = () => {
     );
     const data = await searchResult.json();
     setBookSearch(data.items);
-    console.log(bookSearch);
+    console.log(input);
   }
 
   return (
