@@ -23,10 +23,14 @@ const sess = {
 };
 
 // Define middleware here
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

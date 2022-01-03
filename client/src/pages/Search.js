@@ -16,6 +16,31 @@ const Search = () => {
     console.log(input);
   }
 
+  async function saveButton(key, title, authors, description, link, image) {
+    console.log(
+      `id: ${key}, title: ${title}, authors: ${authors}, description: ${description}, link: ${link}, image: ${image}`
+    );
+
+    try {
+      fetch(`http://localhost:3001/api/book`, {
+        method: `POST`,
+        body: JSON.stringify({
+          id: key,
+          title: title,
+          authors: authors.toString(),
+          description: description,
+          link: link,
+          image: image,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div>
       <form onSubmit={searchButtonHandler}>
@@ -25,7 +50,7 @@ const Search = () => {
       </form>
       <ul>
         {bookSearch.map((item) => {
-          return <Book book={item} />;
+          return <Book key={item.id} book={item} saving={saveButton} />;
         })}
       </ul>
     </div>

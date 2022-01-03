@@ -16,19 +16,19 @@ Book.init(
       allowNull: false,
     },
     authors: {
-      type: DataTypes.DATE,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     description: {
-      type: DataTypes.DATE,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     image: {
-      type: DataTypes.DATE,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     link: {
-      type: DataTypes.DATE,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     user_id: {

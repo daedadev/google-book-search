@@ -4,13 +4,59 @@ const cors = require("cors");
 
 // General CRUD routes
 
-// Routes all defined on /api/book/
-router.get("/", cors(), async (req, res) => {});
+// Get all saved books defined on /api/book/(user ID)
+router.get("/:id", cors(), async (req, res) => {
+  try {
+    getAll = await Book.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
 
-// Routes all defined on /api/book/
-router.post("/", cors(), async (req, res) => {});
+// Get all saved books defined on /api/book/
+router.get("/", cors(), async (req, res) => {
+  try {
+    getAll = await Book.findAll({});
 
-// Routes all defined on /api/book/delete
-router.get("/delete", cors(), async (req, res) => {});
+    res.send(getAll);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
+
+// Add new book defined on /api/book/
+router.post("/", cors(), async (req, res) => {
+  try {
+    console.log(req.body);
+
+    await Book.create({
+      title: req.body.title,
+      authors: req.body.authors,
+      description: req.body.description,
+      image: req.body.image,
+      link: req.body.link,
+    });
+
+    res.send(`${req.params.title} has been added to the books`);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
+
+// Delete saved book route defined on /api/book/delete
+router.delete("/delete/:id", cors(), async (req, res) => {
+  await Book.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+});
 
 module.exports = router;
