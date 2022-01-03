@@ -1,4 +1,4 @@
-export default function Book({ book, key, saving }) {
+export default function Book({ book, key, buttonFunction }) {
   console.log(book.volumeInfo);
 
   var title = book.volumeInfo.title;
@@ -21,7 +21,9 @@ export default function Book({ book, key, saving }) {
       </a>
       <img src={image} alt={`Book cover image for ` + title}></img>
       <button
-        onClick={() => saving(key, title, authors, description, link, image)}
+        onClick={() =>
+          buttonFunction(key, title, authors, description, link, image)
+        }
       ></button>
     </li>
   );

@@ -50,7 +50,7 @@ const Search = () => {
       </form>
       <ul>
         {bookSearch.map((item) => {
-          return <Book key={item.id} book={item} saving={saveButton} />;
+          return <Book key={item.id} book={item} buttonFunction={saveButton} />;
         })}
       </ul>
     </div>
