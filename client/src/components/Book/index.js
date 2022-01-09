@@ -7,19 +7,20 @@ export default function Book({ book, key, buttonFunction }) {
   var link = book.volumeInfo.infoLink;
   var image;
 
-  if (book.volumeInfo.imageLinks.thumbnail) {
-    image = book.volumeInfo.imageLinks.thumbnail;
-  } else if (book.volumeInfo.imageLinks.thumbnail) {
-    image = book.volumeInfo.imageLinks.thumbnail;
-  } else if (book.volumeInfo.imageLinks.thumbnail === undefined) {
-    image =
-      "https://media.istockphoto.com/vectors/error-page-flat-line-concept-link-to-a-nonexistent-page-abstract-vector-id1057525218";
+  if (book.volumeInfo.imageLinks) {
+    if (book.volumeInfo.imageLinks.thumbnail) {
+      image = book.volumeInfo.imageLinks.thumbnail;
+    } else if (book.volumeInfo.imageLinks.smallThumbnail) {
+      image = book.volumeInfo.imageLinks.thumbnail;
+    }
+  } else {
+    image = "/images/NoCoverImageFound.png";
   }
 
   return (
     <li id={key}>
       <h1>{title}</h1>
-      <h1>Authors: {authors}</h1>
+      <h1>Author(s): {authors}</h1>
       <p>{description}</p>
       <h1>Link To Book:</h1>
       <a type="link" href={link}>

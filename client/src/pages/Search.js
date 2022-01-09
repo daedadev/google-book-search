@@ -12,6 +12,11 @@ const Search = () => {
       `https://www.googleapis.com/books/v1/volumes?q=${input}`
     );
     const data = await searchResult.json();
+
+    if (!input) {
+      return;
+    }
+
     setBookSearch(data.items);
     console.log(input);
   }
