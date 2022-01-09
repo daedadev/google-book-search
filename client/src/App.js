@@ -1,11 +1,15 @@
 import Search from "./pages/Search";
+import Saved from "./pages/Saved";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <h1>Is This working?</h1>
-      <Search />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Search />} />
+        <Route path="/saved" element={<Saved />} />
+      </Routes>
+    </Router>
   );
 }
 

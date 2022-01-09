@@ -5,9 +5,15 @@ export default function Book({ book, key, buttonFunction }) {
   var authors = book.volumeInfo.authors;
   var description = book.volumeInfo.description;
   var link = book.volumeInfo.infoLink;
+  var image;
 
   if (book.volumeInfo.imageLinks.thumbnail) {
-    var image = book.volumeInfo.imageLinks.thumbnail;
+    image = book.volumeInfo.imageLinks.thumbnail;
+  } else if (book.volumeInfo.imageLinks.thumbnail) {
+    image = book.volumeInfo.imageLinks.thumbnail;
+  } else if (book.volumeInfo.imageLinks.thumbnail === undefined) {
+    image =
+      "https://media.istockphoto.com/vectors/error-page-flat-line-concept-link-to-a-nonexistent-page-abstract-vector-id1057525218";
   }
 
   return (
