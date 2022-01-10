@@ -23,7 +23,9 @@ router.get("/", cors(), async (req, res) => {
   try {
     getAll = await Book.findAll({});
 
-    res.send(getAll);
+    const books = getAll.map((getInfo) => getInfo.get({ plain: true }));
+
+    res.send(books);
   } catch (err) {
     console.log(err);
     res.json(err);

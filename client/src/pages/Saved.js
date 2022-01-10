@@ -1,39 +1,47 @@
+import { useEffect, useState } from "react";
 import Book from "../components/Book";
 
 const Saved = () => {
-  var books;
-
-  // async function savedBooks() {
-  //   try {
-  //     books = await fetch(`http://localhost:3001/api/book`, {
-  //       method: `GET`,
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  const [storedBooks, setStoredBooks] = useState([]);
 
   async function deleteBooks(id) {
     try {
-      books = await fetch(`http://localhost:3001/api/book/delete/${id}`, {
-        method: `DELETE`,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      var deleteBook = await fetch(
+        `http://localhost:3001/api/book/delete/${id}`,
+        {
+          method: `DELETE`,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(deleteBook);
     } catch (err) {
       console.log(err);
     }
   }
 
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/book`, {
+      method: `GET`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        setStoredBooks(data);
+        console.log(storedBooks[0]);
+      });
+  });
+
   return (
     <div>
       <div>
         <ul>
-          {books.map((item) => {
+          {storedBooks.map((item) => {
             return (
               <Book key={item.id} book={item} buttonFunction={deleteBooks} />
             );
