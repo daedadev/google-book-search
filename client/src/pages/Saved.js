@@ -35,7 +35,7 @@ const Saved = () => {
         setStoredBooks(data);
         console.log(storedBooks[0]);
       });
-  });
+  }, []);
 
   return (
     <div>

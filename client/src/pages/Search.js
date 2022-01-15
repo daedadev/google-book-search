@@ -55,7 +55,13 @@ const Search = () => {
       </form>
       <ul>
         {bookSearch.map((item) => {
-          return <Book key={item.id} book={item} buttonFunction={saveButton} />;
+          return (
+            <Book
+              key={item.id}
+              book={item.volumeInfo}
+              buttonFunction={saveButton}
+            />
+          );
         })}
       </ul>
     </div>

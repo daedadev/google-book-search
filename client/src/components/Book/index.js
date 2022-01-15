@@ -1,17 +1,17 @@
 export default function Book({ book, key, buttonFunction }) {
   console.log(book.volumeInfo);
 
-  var title = book.volumeInfo.title;
-  var authors = book.volumeInfo.authors;
-  var description = book.volumeInfo.description;
-  var link = book.volumeInfo.infoLink;
+  var title = book.title;
+  var authors = book.authors;
+  var description = book.description;
+  var link = book.infoLink;
   var image;
 
-  if (book.volumeInfo.imageLinks) {
-    if (book.volumeInfo.imageLinks.thumbnail) {
-      image = book.volumeInfo.imageLinks.thumbnail;
-    } else if (book.volumeInfo.imageLinks.smallThumbnail) {
-      image = book.volumeInfo.imageLinks.thumbnail;
+  if (book.imageLinks) {
+    if (book.imageLinks.thumbnail) {
+      image = book.imageLinks.thumbnail;
+    } else if (book.imageLinks.smallThumbnail) {
+      image = book.imageLinks.thumbnail;
     }
   } else {
     image = "/images/NoCoverImageFound.png";
