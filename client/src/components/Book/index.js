@@ -4,7 +4,7 @@ export default function Book({ book, key, buttonFunction }) {
   var title = book.title;
   var authors = book.authors;
   var description = book.description;
-  var link = book.infoLink;
+  var link;
   var image;
 
   if (book.imageLinks) {
@@ -13,8 +13,16 @@ export default function Book({ book, key, buttonFunction }) {
     } else if (book.imageLinks.smallThumbnail) {
       image = book.imageLinks.thumbnail;
     }
+  } else if (book.image) {
+    image = book.image;
   } else {
     image = "/images/NoCoverImageFound.png";
+  }
+
+  if (book.infoLink) {
+    link = book.infoLink;
+  } else {
+    link = book.link;
   }
 
   return (

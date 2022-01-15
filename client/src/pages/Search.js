@@ -47,13 +47,17 @@ const Search = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={searchButtonHandler}>
+    <div id="large-container">
+      <form id="search-form" onSubmit={searchButtonHandler}>
         <h1>Search</h1>
-        <input value={input} onInput={(e) => setInput(e.target.value)}></input>
-        <button type="submit"></button>
+        <input
+          id="search-input"
+          value={input}
+          onInput={(e) => setInput(e.target.value)}
+        ></input>
+        <button id="search-button" type="submit"></button>
       </form>
-      <ul>
+      <ul id="result-container">
         {bookSearch.map((item) => {
           return (
             <Book
