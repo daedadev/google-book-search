@@ -35,6 +35,7 @@ export default function Book({ book, key, buttonFunction }) {
         {link}
       </a>
       <img src={image} alt={`Book cover image for ` + title}></img>
+      <button>View</button>
       <button
         onClick={() =>
           buttonFunction(key, title, authors, description, link, image)

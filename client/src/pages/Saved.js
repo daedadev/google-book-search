@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Book from "../components/Book";
+import BookItem from "../components/BookItem";
 
 const Saved = () => {
   const [storedBooks, setStoredBooks] = useState([]);
@@ -36,7 +36,7 @@ const Saved = () => {
       <ul id="result-container">
         {storedBooks.map((item) => {
           return (
-            <Book key={item.id} book={item} buttonFunction={deleteBooks} />
+            <BookItem key={item.id} book={item} buttonFunction={deleteBooks} />
           );
         })}
       </ul>

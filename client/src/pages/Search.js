@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Book from "../components/Book";
+import BookItem from "../components/BookItem";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState([]);
@@ -60,7 +60,7 @@ const Search = () => {
       <ul id="result-container">
         {bookSearch.map((item) => {
           return (
-            <Book
+            <BookItem
               key={item.id}
               book={item.volumeInfo}
               buttonFunction={saveButton}
