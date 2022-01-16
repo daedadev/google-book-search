@@ -1,11 +1,19 @@
-export default function Book({ book, key, buttonFunction }) {
-  console.log(book.volumeInfo);
+import { useState } from "react";
+import BookModal from "../Modal";
+
+export default function Book({ book, buttonFunction, buttonName }) {
+  const [showModal, setShowModal] = useState(false);
 
   var title = book.title;
   var authors = book.authors;
   var description = book.description;
+  var key = book.id;
   var link;
   var image;
+
+  function viewButton() {
+    setShowModal(!showModal);
+  }
 
   if (book.imageLinks) {
     if (book.imageLinks.thumbnail) {
@@ -25,6 +33,15 @@ export default function Book({ book, key, buttonFunction }) {
     link = book.link;
   }
 
+  var modalBook = {
+    key: key,
+    title: title,
+    authors: authors,
+    description: description,
+    link: link,
+    image: image,
+  };
+
   return (
     <li id={key}>
       <h1>{title}</h1>
@@ -35,12 +52,21 @@ export default function Book({ book, key, buttonFunction }) {
         {link}
       </a>
       <img src={image} alt={`Book cover image for ` + title}></img>
-      <button>View</button>
+      <button onClick={viewButton}>View</button>
       <button
         onClick={() =>
           buttonFunction(key, title, authors, description, link, image)
         }
-      ></button>
+      >
+        {buttonName}
+      </button>
+      <BookModal
+        book={modalBook}
+        toggleModal={viewButton}
+        modalShown={showModal}
+        modalButtonFunction={buttonFunction}
+        modalButtonName={buttonName}
+      />
     </li>
   );
 }

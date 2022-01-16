@@ -18,7 +18,6 @@ const Search = () => {
     }
 
     setBookSearch(data.items);
-    console.log(input);
   }
 
   async function saveButton(key, title, authors, description, link, image) {
@@ -41,6 +40,7 @@ const Search = () => {
           "Content-Type": "application/json",
         },
       });
+      alert(title + " has successfully been added to your library.");
     } catch (err) {
       console.log(err);
     }
@@ -64,6 +64,7 @@ const Search = () => {
               key={item.id}
               book={item.volumeInfo}
               buttonFunction={saveButton}
+              buttonName={"Save"}
             />
           );
         })}

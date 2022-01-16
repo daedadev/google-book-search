@@ -54,11 +54,16 @@ router.post("/", cors(), async (req, res) => {
 
 // Delete saved book route defined on /api/book/delete
 router.delete("/delete/:id", cors(), async (req, res) => {
-  await Book.destroy({
-    where: {
-      id: req.params.id,
-    },
-  });
+  try {
+    await Book.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    console.log(req.params.id);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

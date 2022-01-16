@@ -4,14 +4,17 @@ import BookItem from "../components/BookItem";
 const Saved = () => {
   const [storedBooks, setStoredBooks] = useState([]);
 
-  async function deleteBooks(id) {
+  async function deleteBooks(key, title, authors, description, link, image) {
+    console.log(key);
     try {
-      await fetch(`http://localhost:3001/api/book/delete/${id}`, {
+      fetch(`http://localhost:3001/api/book/delete/${key}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": "application/json",
         },
       });
+      alert(title + " has successfully been deleted from your library.");
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +39,11 @@ const Saved = () => {
       <ul id="result-container">
         {storedBooks.map((item) => {
           return (
-            <BookItem key={item.id} book={item} buttonFunction={deleteBooks} />
+            <BookItem
+              book={item}
+              buttonFunction={deleteBooks}
+              buttonName={"Delete"}
+            />
           );
         })}
       </ul>
