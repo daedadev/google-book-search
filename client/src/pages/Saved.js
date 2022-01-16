@@ -36,6 +36,7 @@ const Saved = () => {
 
   return (
     <div id="large-container">
+      <h1>Library</h1>
       <ul id="result-container">
         {storedBooks.map((item) => {
           return (

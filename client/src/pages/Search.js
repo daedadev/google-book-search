@@ -49,7 +49,7 @@ const Search = () => {
   return (
     <div id="large-container">
       <form id="search-form" onSubmit={searchButtonHandler}>
-        <h1>Search</h1>
+        <h1>Book Search</h1>
         <input
           id="search-input"
           value={input}
