@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookItem from "../components/BookItem";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState([]);
 
   const [input, setInput] = useState();
+
+  useEffect(() => {
+    searchOnLoad();
+    console.log("Loaded");
+  }, []);
+
+  async function searchOnLoad() {
+    const searchResult = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${input}`
+    );
+    const data = await searchResult.json();
+
+    if (!input) {
+      return;
+    }
+
+    setBookSearch(data.items);
+  }
 
   async function searchButtonHandler(event) {
     event.preventDefault();
@@ -49,13 +67,18 @@ const Search = () => {
   return (
     <div id="large-container">
       <form id="search-form" onSubmit={searchButtonHandler}>
-        <h1>Book Search</h1>
-        <input
-          id="search-input"
-          value={input}
-          onInput={(e) => setInput(e.target.value)}
-        ></input>
-        <button id="search-button" type="submit"></button>
+        <div id="search-holder">
+          <input
+            id="search-input"
+            value={input}
+            onInput={(e) => setInput(e.target.value)}
+          ></input>
+          <div id="search-button-holder">
+            <button id="search-button" type="submit">
+              Search
+            </button>
+          </div>
+        </div>
       </form>
       <ul id="result-container">
         {bookSearch.map((item) => {

@@ -1,12 +1,20 @@
+import "./style.css";
+
 export default function Banner() {
   return (
     <header>
       <nav>
-        <h1>Google Books</h1>
-        <a href="/">Search</a>
-        <a href="/saved">Saved</a>
+        <h1 className="nav-item">Google Books</h1>
+        <a className="nav-item" href="/">
+          Search
+        </a>
+        <a className="nav-item" href="/saved">
+          Saved
+        </a>
       </nav>
-      <div>{/* <img src="/images/GoogleBooksLogo.png"></img> */}</div>
+      <div id="image-holder">
+        <img alt="Google Books Logo" src="/GoogleBooksLogo.png"></img>
+      </div>
     </header>
   );
 }

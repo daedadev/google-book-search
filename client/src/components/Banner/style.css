@@ -1,0 +1,38 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: rgb(90, 90, 90, 0.3);
+  border-width: 0px 0px 3px 0px;
+  border-style: solid;
+  margin-bottom: 3%;
+}
+
+header nav a {
+  color: black;
+}
+
+.nav-item {
+  padding: 1%;
+}
+
+#image-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+header div img {
+  width: 60%;
+}

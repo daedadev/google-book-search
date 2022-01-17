@@ -1,0 +1,74 @@
+.result-item-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  border-style: solid;
+  border-color: rgb(90, 90, 90, 0.3);
+  border-width: 2px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.result-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1%;
+  width: 50%;
+}
+
+.result-button-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40%;
+}
+
+.result-button-holder button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+  border-color: blanchedalmond;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 5%;
+  padding: 1%;
+}
+
+.result-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.description-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1%;
+}
+
+.result-image-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1%;
+}

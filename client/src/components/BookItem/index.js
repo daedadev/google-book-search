@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BookModal from "../Modal";
+import "./style.css";
 
 export default function Book({ book, buttonFunction, buttonName }) {
   const [showModal, setShowModal] = useState(false);
@@ -43,23 +44,34 @@ export default function Book({ book, buttonFunction, buttonName }) {
   };
 
   return (
-    <li id={key}>
-      <h1>{title}</h1>
-      <h1>Author(s): {authors}</h1>
-      <p>{description}</p>
-      <h1>Link To Book:</h1>
-      <a type="link" href={link}>
-        {link}
-      </a>
-      <img src={image} alt={`Book cover image for ` + title}></img>
-      <button onClick={viewButton}>View</button>
-      <button
-        onClick={() =>
-          buttonFunction(key, title, authors, description, link, image)
-        }
-      >
-        {buttonName}
-      </button>
+    <li className="result-item-holder" id={key}>
+      <section className="result-top">
+        <div className="title-holder">
+          <h1>{title}</h1>
+          <h3>Author(s): {authors}</h3>
+        </div>
+        <div className="result-button-holder">
+          <button onClick={viewButton}>View</button>
+          <button
+            onClick={() =>
+              buttonFunction(key, title, authors, description, link, image)
+            }
+          >
+            {buttonName}
+          </button>
+        </div>
+      </section>
+      <section className="result-bottom">
+        <div className="result-image-holder">
+          <a type="link" href={link}>
+            Link To Book
+          </a>
+          <img src={image} alt={`Book cover image for ` + title}></img>
+        </div>
+        <div className="description-holder">
+          <p>{description}</p>
+        </div>
+      </section>
       <BookModal
         book={modalBook}
         toggleModal={viewButton}
