@@ -11,13 +11,13 @@ Thank you for visiting my project and I hope you enjoy.
 The Application is Deployed Live Here: 
 
 Searching for a book and pressing enter will go through the API and return results accordingly.
-![Main search page](/screenshot1.PNG?raw=true)
+![Main search page](/client/public/screenshot1.PNG?raw=true)
 
 After clicking save on a book it will be added to your library which you can view by clicking the "Saved" button in the top left.
-![Saved ](/screenshot2.PNG?raw=true)
+![Saved ](/client/public/screenshot2.PNG?raw=true)
 
 Modal that pops up with the save or delete function on either the Search page or Saved books page respectively.
-![Book view modal](/screenshot3.PNG?raw=true)
+![Book view modal](/client/public/screenshot3.PNG?raw=true)
 
 ## License
 
