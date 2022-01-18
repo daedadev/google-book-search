@@ -32,6 +32,11 @@ app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("*", function (req, res) {
+  const index = path.join(__dirname, "build", "index.html");
+  res.sendFile(index);
+});
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
