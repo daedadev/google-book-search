@@ -23,11 +23,7 @@ const sess = {
 };
 
 // Define middleware here
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
