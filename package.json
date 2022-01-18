@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "17.3.1",
+    "node": "^16.13.0",
     "npm": "8.1.2"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "mongoose": "^6.1.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "node": "^17.3.1",
+    "node": "^16.13.0",
     "nodemailer": "^6.7.2",
     "react": "^17.0.2",
     "react-hanger": "^2.4.2",
