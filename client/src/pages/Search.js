@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BookItem from "../components/BookItem";
 
 const Search = () => {
   const [bookSearch, setBookSearch] = useState([]);
 
   const [input, setInput] = useState();
-
-  useEffect(() => {
-    searchOnLoad();
-    console.log("Loaded");
-  }, []);
-
-  async function searchOnLoad() {
-    const searchResult = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${input}`
-    );
-    const data = await searchResult.json();
-
-    if (!input) {
-      return;
-    }
-
-    setBookSearch(data.items);
-  }
 
   async function searchButtonHandler(event) {
     event.preventDefault();
@@ -49,7 +31,7 @@ const Search = () => {
         body: JSON.stringify({
           id: key,
           title: title,
-          authors: authors.toString(),
+          authors: authors,
           description: description,
           link: link,
           image: image,

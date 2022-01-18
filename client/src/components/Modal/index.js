@@ -23,7 +23,7 @@ export default function BookModal({
           <h1>Author(s): {authors}</h1>
           <p>{description}</p>
         </div>
-        <a type="link" href={link}>
+        <a type="link" href={link} target="_blank" rel="noreferrer">
           Link To Book
         </a>
         <div id="button-holder">

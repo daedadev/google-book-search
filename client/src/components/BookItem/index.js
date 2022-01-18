@@ -16,6 +16,12 @@ export default function Book({ book, buttonFunction, buttonName }) {
     setShowModal(!showModal);
   }
 
+  if (book.authors) {
+    authors = book.authors;
+  } else {
+    authors = "N/A";
+  }
+
   if (book.imageLinks) {
     if (book.imageLinks.thumbnail) {
       image = book.imageLinks.thumbnail;
@@ -63,7 +69,7 @@ export default function Book({ book, buttonFunction, buttonName }) {
       </section>
       <section className="result-bottom">
         <div className="result-image-holder">
-          <a type="link" href={link}>
+          <a type="link" href={link} target="_blank" rel="noreferrer">
             Link To Book
           </a>
           <img src={image} alt={`Book cover image for ` + title}></img>
