@@ -27,12 +27,8 @@ app.use(cors());
 app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
 
-app.get("*", function (req, res) {
-  const index = path.join(__dirname, "build", "index.html");
-  res.sendFile(index);
-});
+app.use(express.static(path.join(__dirname, "public")));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

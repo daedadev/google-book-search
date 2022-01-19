@@ -21,7 +21,7 @@ const Saved = () => {
   }
 
   useEffect(() => {
-    fetch(`/api/book`, {
+    fetch(`/api/book/`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
