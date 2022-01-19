@@ -26,7 +26,7 @@ const Search = () => {
     );
 
     try {
-      fetch(`http://localhost:3001/api/book`, {
+      fetch(`https://reactbooksearchapp.herokuapp.com/api/book`, {
         method: `POST`,
         body: JSON.stringify({
           id: key,
