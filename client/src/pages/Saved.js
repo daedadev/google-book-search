@@ -7,7 +7,7 @@ const Saved = () => {
   async function deleteBooks(key, title, authors, description, link, image) {
     console.log(key);
     try {
-      fetch(`api/book/delete/${key}`, {
+      fetch(`http://localhost:3001/api/book/delete/${key}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const Saved = () => {
   }
 
   useEffect(() => {
-    fetch(`api/book/`, {
+    fetch(`http://localhost:3001/api/book/`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
