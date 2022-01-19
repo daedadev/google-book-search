@@ -26,7 +26,7 @@ const Search = () => {
     );
 
     try {
-      fetch(`/api/book`, {
+      fetch(`api/book`, {
         method: `POST`,
         body: JSON.stringify({
           id: key,
