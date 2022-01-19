@@ -29,16 +29,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Use apiRoutes
 app.use(routes);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(resolve(process.cwd(), "client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(resolve(process.cwd(), "client/build/index.html"));
-  });
-}
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
