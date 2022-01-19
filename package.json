@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "proxy": "http://https://reactbooksearchapp.herokuapp.com/",
+  "proxy": "http://reactbooksearchapp.herokuapp.com/",
   "engines": {
     "node": "^16.13.0",
     "npm": "8.1.2"
