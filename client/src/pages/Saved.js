@@ -21,7 +21,7 @@ const Saved = () => {
   }
 
   useEffect(() => {
-    fetch(`/api/book/`, {
+    fetch(`http://localhost:3001/api/book/`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
