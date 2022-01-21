@@ -7,7 +7,7 @@ const Saved = () => {
   async function deleteBooks(key, title, authors, description, link, image) {
     console.log(key);
     try {
-      fetch(`https://reactbooksearchapp.herokuapp.com/api/book/delete/${key}`, {
+      fetch(`/api/book/delete/${key}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const Saved = () => {
   }
 
   useEffect(() => {
-    fetch(`https://reactbooksearchapp.herokuapp.com/api/book/`, {
+    fetch(`/api/book/`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",

@@ -5,7 +5,7 @@ const cors = require("cors");
 // General CRUD routes
 
 // Get all saved books defined on /api/book/(user ID)
-router.get("/:id", cors(), async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     getAll = await Book.findAll({
       where: {
@@ -19,7 +19,7 @@ router.get("/:id", cors(), async (req, res) => {
 });
 
 // Get all saved books defined on /api/book/
-router.get("/", cors(), async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     getAll = await Book.findAll({});
 
@@ -33,7 +33,7 @@ router.get("/", cors(), async (req, res) => {
 });
 
 // Add new book defined on /api/book/
-router.post("/", cors(), async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     console.log(req.body);
 
@@ -53,7 +53,7 @@ router.post("/", cors(), async (req, res) => {
 });
 
 // Delete saved book route defined on /api/book/delete
-router.delete("/delete/:id", cors(), async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
     await Book.destroy({
       where: {
