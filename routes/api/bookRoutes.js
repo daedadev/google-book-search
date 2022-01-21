@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const { User, Book } = require("../../models");
-const cors = require("cors");
+const { Book } = require("../../models/book");
 
 // General CRUD routes
 
