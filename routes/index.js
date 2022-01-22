@@ -38,7 +38,7 @@ router.post("/api/book", async (req, res) => {
 
     await Book.create({
       title: req.body.title,
-      authors: req.body.authors,
+      authors: req.body.authors.toString(),
       description: req.body.description,
       image: req.body.image,
       link: req.body.link,
@@ -52,7 +52,7 @@ router.post("/api/book", async (req, res) => {
 });
 
 // Delete saved book route defined on /api/book/delete
-router.delete("/api/delete/:id", async (req, res) => {
+router.delete("/api/book/delete/:id", async (req, res) => {
   try {
     await Book.destroy({
       where: {
