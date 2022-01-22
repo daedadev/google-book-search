@@ -8,7 +8,7 @@ Thank you for visiting my project and I hope you enjoy.
 
 ## Usage
 
-The Application is Deployed Live Here: 
+The Application is Deployed Live Here: https://reactappbooksearch.herokuapp.com/
 
 Searching for a book and pressing enter will go through the API and return results accordingly.
 ![Main search page](/client/public/screenshot1.PNG?raw=true)
