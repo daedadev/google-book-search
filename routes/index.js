@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Book } = require("../models/book");
+const Book = require("../models/book");
 
 // General CRUD routes
 
@@ -18,7 +18,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Get all saved books defined on /api/book/
-router.get("/", async (req, res) => {
+router.get("/api/book", async (req, res) => {
   try {
     getAll = await Book.findAll({});
 
@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
 });
 
 // Add new book defined on /api/book/
-router.post("/", async (req, res) => {
+router.post("/api/book", async (req, res) => {
   try {
     console.log(req.body);
 
@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
 });
 
 // Delete saved book route defined on /api/book/delete
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/api/delete/:id", async (req, res) => {
   try {
     await Book.destroy({
       where: {
