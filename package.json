@@ -31,14 +31,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wron1/google-book-search.git"
+    "url": "git+https://github.com/daedadev/google-book-search.git"
   },
   "author": "Daniel Moore",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wron1/google-book-search/issues"
+    "url": "https://github.com/daedadev/google-book-search/issues"
   },
-  "homepage": "https://github.com/wron1/google-book-search#readme",
+  "homepage": "https://github.com/daedadev/google-book-search#readme",
   "optionalDependencies": {
     "fsevents": "^2.3.2"
   }
